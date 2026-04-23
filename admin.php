@@ -4,16 +4,16 @@ require_once 'Product.php';
 
 $message = "";
 
-// Якщо натиснули кнопку "Pridať"
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $database = new Database();
     $db = $database->getConnection();
     $product = new Product($db);
 
-    // Якщо картинку не вписали, ставим заглушку
+  
     $image = !empty($_POST['image']) ? $_POST['image'] : 'default.png';
 
-    // Зберігаємо в базу
+  
     if ($product->create($_POST['name'], $_POST['description'], $_POST['price'], $image)) {
         $message = "Produkt bol úspešne pridaný!";
     } else {

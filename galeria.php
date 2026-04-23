@@ -6,8 +6,8 @@ $database = new Database();
 $db = $database->getConnection();
 
 $product = new Product($db);
-$stmt = $product->read(); // Викликаємо метод READ
-$all_products = $stmt->fetchAll(PDO::FETCH_ASSOC); // Зберігаємо всі товари в масив
+$stmt = $product->read(); 
+$all_products = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 ?>
 
 <!DOCTYPE html>

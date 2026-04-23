@@ -7,7 +7,7 @@ class Product {
         $this->conn = $db;
     }
 
-    // READ: Отримання всіх товарів
+  
     public function read() {
         $query = "SELECT * FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
@@ -15,19 +15,19 @@ class Product {
         return $stmt;
     }
 
-    // DELETE: Видалення товару
+    
     public function delete($id) {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         
-        $id = htmlspecialchars(strip_tags($id)); // Захист
+        $id = htmlspecialchars(strip_tags($id)); 
         $stmt->bindParam(":id", $id);
 
         if($stmt->execute()) { return true; }
         return false;
     }
 
-    // CREATE: Додавання нового товару
+  
     public function create($name, $description, $price, $image = 'default.png') {
         $query = "INSERT INTO " . $this->table_name . " (name, description, price, image) VALUES (:name, :description, :price, :image)";
         $stmt = $this->conn->prepare($query);
