@@ -1,0 +1,195 @@
+
+
+
+
+/* Všetky zdroje som napísal na konci súboru main.css */
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+    animation: logo-breathe 3s infinite ease-in-out;
+    transition: 0.4s;
+}
+
+.logo {
+    margin-left: 20px; 
+}
+
+.logo img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 25px rgba(255,255,255,0.8));
+}
+
+.menu ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.menu ul li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; 
+    width: 0; 
+    background-color: white; 
+    transition: width 0.3s ease; 
+}
+
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+#burger-toggle {
+    display: none;
+}
+
+label {
+    display: none;
+    cursor: pointer;
+}
+
+label span, label::before, label::after {
+    display: block;
+    content: '';
+    height: 3px;
+    width: 30px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 784px) {
+    label {
+        display: block;
+    }
+
+    .menu ul {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 100px 0;
+        text-align: center;
+        transition: top 0.5s ease;
+        z-index: 999;
+    }
+
+    #burger-toggle:checked ~ .menu ul {
+        top: 70px;
+    }
+}
+
+main {
+    padding-top: 80px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    background: linear-gradient(-45deg, #ee7752,#e73c7e, #23a6d5,#23d5ab);
+    background-size: 400% 400%;
+    height:100vh;
+    animation: gradient 15s ease infinite;
+    background-attachment: fixed;
+}
+
+@keyframes gradient{
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
+}
+
+footer {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    color: white;
+}
+
+footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+footer nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+footer nav a:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 25px rgba(255,255,255,0.8));
+}
+
+footer p {
+    opacity: 0.8;
+    font-size: 20px;
+    margin: 0;
+}
+
+.contact-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.contact-link:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 25px rgb(255, 255, 255));
+}
+
+
+/*
+Zdroje
+
+https://youtu.be/wqOG-jRz3OI?si=EAzc17DTczRKaQwU   Gradient background
+https://youtu.be/q9cp_xxJi3c?si=M_elHx7unzXlKvsa   Burger menu for phones 
+https://youtu.be/0TnO1GzKWPc?si=tx9wxbXZ6KB7P3RT   Animation with scroll for iphone
+https://youtu.be/z2LQYsZhsFw?si=MjaYstQgZix_8L6q   Animations keyframes
+https://youtu.be/Bhj4miRkSOc?si=h_dizAbC-5I1ePdF   Animations keyframes 2
+https://investor.apple.com/our_values/default.aspx                                    text
+https://www.techbox.sk/znacky-apple-historia-a-sucasnost-technologickej-legendy       text a historia
+
+https://edu.ukf.sk/pluginfile.php/507776/mod_resource/content/6/js%20zaklady2.pdf     alert 
+https://youtu.be/i_8NQuEAOmg?si=-XSseDAJ78MBLICK                                      alert
+https://edu.ukf.sk/pluginfile.php/507775/mod_resource/content/3/js-zaklady.pdf        alert
+
+Dobrý ďeň!
+Na vytvorenie tejto práce som využil zdroje ako YouTube, kurz v edu jazykoch webu a používal som šablónu a príkazy zo svojej domácej úlohy (du1)
+Všetky obrázky som stiahol z internetu (ak bude potrebné, môžem poskytnúť aj odkazy)

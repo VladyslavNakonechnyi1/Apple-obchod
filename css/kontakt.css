@@ -1,0 +1,127 @@
+
+/* Všetky zdroje som napísal na konci súboru main.css */
+
+.Kontakt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
+    color: white;
+    padding: 20px;           
+    text-align: center;
+}
+
+.Kontakt h1 {
+    font-size: 45px;
+    opacity: 0; 
+    animation: appear 1s forwards; 
+    animation-delay: 0.3s; 
+}
+
+.dole {
+    opacity: 0; 
+    animation: appear 2s forwards; 
+    animation-delay: 0.4s; 
+}
+
+
+form {
+    opacity: 0; 
+    animation: appear 3s forwards; 
+    animation-delay: 0.5s; 
+}
+
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input,
+form textarea {
+    background-color: rgba(255,255,255,0.05) !important;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.76);
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #ffffff;
+    outline: none;
+
+}
+
+form input::placeholder{
+    color: rgba(255, 255, 255, 0.918);
+}
+
+form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.918);
+}
+
+label input {
+    margin-right: 10px;
+}
+
+
+button {
+    padding: 15px;
+    background: #ffffff;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid white;
+}
+
+button:hover {
+    color: white;
+    background: #ffffff46;
+    border: 2px solid white;
+}
+
+
+.suhlas {
+    display: flex;
+    align-items: center;      
+    justify-content: center;  
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    margin: auto;
+    
+}
+
+.suhlas input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #23d5ab;
+}
+@media (max-width: 500px) {
+    .Kontakt {
+        padding: 40px 10px;
+    }
+}
+
+
