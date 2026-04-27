@@ -1,44 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="O-nas">
-    <meta name="keywords" content="Apple">
-    <meta name="author" content="Vladyslav Nakonechnyi">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Apple</title>
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/o-nas.css">
-</head>
-<body>
-   <header>
-    <div class="logo">
-        <a href="o-nas.html"><img src="/img/11-114612_apple-logo-png-ios-6-apple-logo.png" alt="Logo"></a>
-    </div>
-    <input id="burger-toggle" type="checkbox">
-    <label for="burger-toggle">
-        <span></span>
-    </label>
-    <nav class="menu">
-        <ul>
-            <li><a href="index.html" class="menu_link">Domov</a></li>
-            <li><a href="o-nas.html" class="menu_link">O nás</a></li>
-            <li><a href="galeria.html" class="menu_link">Galéria</a></li>
-            <li><a href="kontakt.html" class="menu_link">Kontakt</a></li>
-        </ul>
-    </nav>
-</header>
+<?php include 'header/header.php'; ?>
+
+<link rel="stylesheet" href="/apple-obchod/css/o-nas.css">
+
 <div class="container">
     <div class="text-center">
         <p class="hore">Kto sme?</p>
         <p class="dole">Hriech, ak nás nepoznáš</p>
     </div>
 </div>
+
 <section class="info">
     <h2>Apple:</h2>
     <p>je značka, ktorá stojí na križovatke technológií a umenia. Sme inžinieri, dizajnéri a tvorcovia, spojení vášňou pre dokonalosť. Od založenia Stevom Jobsom a Stevom Wozniakom sme vždy usilovali o to, aby sme svet zmenili k lepšiemu.je značka, ktorá stojí na križovatke technológií a umenia. Sme inžinieri, dizajnéri a tvorcovia, spojení vášňou pre dokonalosť. Od založenia Stevom Jobsom a Stevom Wozniakom sme vždy usilovali o to, aby sme svet zmenili k lepšiemu.</p>
 </section>
+
 <section class="smth">
     <div class="smth-box">
         <h3>Apple: Naša krátka história</h3>
@@ -56,8 +31,7 @@
             iPhone (2007) zmenil mobilný trh, iPad (2010) priniesol väčšiu obrazovku a kompatibilitu s aplikáciami iPhone<br><br>
             Apple Watch (2013), iPhone 6 a 6 Plus (2014), Apple Pay, Apple Music, iOS a Mac OS X nové verzie prinášali inovácie<br><br>
             Apple plánuje aj elektrické automobily a stále rastie na trhu<br><br>
-</p>
-
+        </p>
     </div>
 
     <div class="smth-box">
@@ -71,18 +45,5 @@
         </p>
     </div>
 </section>
-    <footer>
-  <nav>
-    <a href="index.html">Domov</a>
-    <a href="o-nas.html">O nás</a>
-    <a href="galeria.html">Galéria</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
 
-  <p>© 2025 Fan stranka Apple. Všetky práva vyhradené</p>
-  <p>Vytvoril: Vladyslav Nakonechnyi</p>
-  <p>Email: <a href="https://www.apple.com" class="contact-link">apple.com</a></p>
-  <p>Tel: <a href="tel:+421901234567" class="contact-link">+421 923 456 567</a></p>
-</footer>
-</body>
-</html>
+<?php include 'footer/footer.php'; ?>

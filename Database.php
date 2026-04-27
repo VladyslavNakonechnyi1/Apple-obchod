@@ -16,7 +16,7 @@ class Database {
         
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $exception) {
-            echo "Помилка підключення: " . $exception->getMessage();
+            echo "Chyba pripojenia: " . $exception->getMessage();
         }
 
         return $this->conn;
