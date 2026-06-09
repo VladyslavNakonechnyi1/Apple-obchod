@@ -29,7 +29,8 @@ $all_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p><strong>€<?php echo htmlspecialchars($row['price']); ?></strong></p>
         <button class="buy-btn" id="btn" onclick="window.open('https://www.apple.com/sk/', '_blank')">Kúpiť</button>
         <br><br>
-        <a href="delete.php?id=<?php echo $row['id']; ?>" style="color:red; text-decoration:underline;">Zmazať produkt</a>
+        <a href="edit.php?id=<?php echo $row['id']; ?>" style="color:blue; text-decoration:underline;">Upravit</a> | 
+        <a href="delete.php?id=<?php echo $row['id']; ?>" style="color:red; text-decoration:underline;">Zmazat</a>
     </div>
     <?php endforeach; ?>
 </section>
@@ -52,8 +53,11 @@ $all_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <td><?php echo htmlspecialchars($row['name']); ?></td>
         <td><?php echo htmlspecialchars($row['description']); ?></td>
         <td>€<?php echo htmlspecialchars($row['price']); ?></td>
-        <button class="buy-btn" onclick="window.open('https://www.apple.com/sk/search/<?php echo urlencode($row['name']); ?>', '_blank')">Kúpiť</button>
-        <td><a href="delete.php?id=<?php echo $row['id']; ?>" style="color:red; font-weight:bold;">Zmazať</a></td>
+        <td><button class="buy-btn" onclick="window.open('https://www.apple.com/sk/search/<?php echo urlencode($row['name']); ?>', '_blank')">Kúpiť</button></td>
+        <td>
+            <a href="edit.php?id=<?php echo $row['id']; ?>" style="color:blue; font-weight:bold;">Upravit</a> | 
+            <a href="delete.php?id=<?php echo $row['id']; ?>" style="color:red; font-weight:bold;">Zmazat</a>
+        </td>
       </tr>
       <?php endforeach; ?>
     </tbody>
