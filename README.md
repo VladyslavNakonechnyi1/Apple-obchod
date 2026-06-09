@@ -12,4 +12,4 @@ Projekt demonštruje prácu s databázou cez PDO a využíva plnohodnotné objek
 **Dôležitá poznámka k dizajnu:** Nevyužil som žiadnu stiahnutú šablónu z internetu. HTML a CSS dizajn, ktorý je v tomto projekte použitý, som **vytvoril ja osobne** počas prvého semestra v rámci predmetu Jazyky Webu 
 
 Odkaz na môj pôvodný repozitár so šablónou z prvého semestra nájdete tu:
-
+https://github.com/VladyslavNakonechnyi1/JW-Sablona
