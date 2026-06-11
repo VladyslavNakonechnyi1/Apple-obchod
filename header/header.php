@@ -1,3 +1,9 @@
+<?php
+// Kontrola ci uz bezi session, aby PHP nehadzalo cervene chyby
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -31,6 +37,13 @@
                 <li><a href="o-nas.php" class="menu_link">O nás</a></li>
                 <li><a href="galeria.php" class="menu_link">Galéria</a></li>
                 <li><a href="kontakt.php" class="menu_link">Kontakt</a></li>
+                
+                <?php if (isset($_SESSION['prihlaseny_uzivatel'])): ?>
+                    <li><a href="admin.php" class="menu_link" style="color: #0071e3; font-weight: bold;">Admin</a></li>
+                    <li><a href="logout.php" class="menu_link" style="color: red;">Odhlásiť</a></li>
+                <?php else: ?>
+                    <li><a href="login.php" class="menu_link">Prihlásenie</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

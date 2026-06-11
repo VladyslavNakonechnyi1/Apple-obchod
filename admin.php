@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// OCHRANNIK - Ak uzivatel nie je prihlaseny, vyhodime ho na login
+if (!isset($_SESSION['prihlaseny_uzivatel'])) {
+    header("Location: login.php");
+    exit();
+}
+
 // Pripojenie potrebnych suborov pre databazu a objekty
 require_once 'Database.php';
 require_once 'Product.php';
@@ -14,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vytvorenie instancie triedy Product (nas objekt)
     $product = new Product($db);
 
-    //Kontrola obrazka (ak uzivatel nic nezada, pouzije sa defaultny obrazok)
+    // Kontrola obrazka (ak uzivatel nic nezada, pouzije sa defaultny obrazok)
     $image = !empty($_POST['image']) ? $_POST['image'] : 'default.png';
 
     // Volanie funkcie CREATE z Product.php na ulozenie do databazy
@@ -25,32 +33,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="sk">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin - Pridat produkt</title>
-    <link rel="stylesheet" href="css/main.css">
-    <style>
-        .admin-box { max-width: 450px; margin: 50px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
-        .admin-box input, .admin-box textarea { width: 90%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
-    </style>
-</head>
-<body>
-    <div class="admin-box">
-        <h2>Pridat novy produkt</h2>
-        
-        <?php if($message) echo "<p style='color:green; font-weight:bold;'>$message</p>"; ?>
-        
-        <form action="admin.php" method="POST">
-            <input type="text" name="name" placeholder="Nazov produktu (napr. iPhone 18)" required>
-            <textarea name="description" placeholder="Kratky popis" required></textarea>
-            <input type="number" step="0.01" name="price" placeholder="Cena v €" required>
-            <input type="text" name="image" placeholder="Nazov obrazka (napr. 17pro.png)">
-            <button type="submit" class="buy-btn" style="padding: 10px 20px; cursor: pointer; width: 100%;">Pridat do databazy</button>
-        </form>
-        <br><br>
-        <a href="galeria.php" style="color: #333; text-decoration: underline;">Spat do galerie</a>
+
+<?php include 'header/header.php'; ?>
+
+<link rel="stylesheet" href="/apple-obchod/css/kontakt.css">
+
+<section class="Kontakt">
+    <h1>Pridať produkt</h1>
+    <p class="dole">Administračný panel pre pridávanie nových zariadení</p>
+
+    <?php if($message): ?>
+        <p style="color: <?php echo strpos($message, 'Chyba') !== false ? 'red' : 'green'; ?>; font-weight: bold; text-align: center; margin-bottom: 15px;">
+            <?php echo $message; ?>
+        </p>
+    <?php endif; ?>
+
+    <form id="contactForm" action="admin.php" method="POST">
+        <input type="text" name="name" placeholder="Názov produktu (napr. iPhone 18)" required>
+        <textarea name="description" placeholder="Krátky popis" required></textarea>
+        <input type="number" step="0.01" name="price" placeholder="Cena v €" required>
+        <input type="text" name="image" placeholder="Názov obrázka (napr. 17pro.png)">
+        <button type="submit">Pridať do databázy</button>
+    </form>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="galeria.php" style="color: inherit; text-decoration: underline; margin-right: 15px;">Späť do galérie</a>
+        <a href="logout.php" style="color: red; text-decoration: underline; font-weight: bold;">Odhlásiť sa</a>
     </div>
-</body>
-</html>
+</section>
+
+<?php include 'footer/footer.php'; ?>
