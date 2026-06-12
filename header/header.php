@@ -1,5 +1,5 @@
 <?php
-// Kontrola ci uz bezi session, aby PHP nehadzalo cervene chyby
+// Kontrola ci uz bezi session aby php nehadzalo cervene chyby
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

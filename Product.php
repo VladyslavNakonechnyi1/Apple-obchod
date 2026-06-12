@@ -2,7 +2,8 @@
 class Product {
     private $conn;
     private $table_name = "products";
-
+    
+    //Spojenie s databazou
     public function __construct($db) {
         $this->conn = $db;
     }
@@ -19,11 +20,11 @@ class Product {
     public function create($name, $description, $price, $image = 'default.png') {
         $query = "INSERT INTO " . $this->table_name . " (name, description, price, image) VALUES (:name, :description, :price, :image)";
         $stmt = $this->conn->prepare($query);
-
+    // Vrati html-kod na bezbecni symbol
         $name = htmlspecialchars(strip_tags($name));
         $description = htmlspecialchars(strip_tags($description));
         $price = htmlspecialchars(strip_tags($price));
-
+    // Priradenie hodnot proti sql injection
         $stmt->bindParam(":name", $name);
         $stmt->bindParam(":description", $description);
         $stmt->bindParam(":price", $price);
@@ -41,7 +42,7 @@ class Product {
         $price = htmlspecialchars(strip_tags($price));
         $description = htmlspecialchars(strip_tags($description));
         $id = htmlspecialchars(strip_tags($id));
-
+    // Priradenie novych dat
         $stmt->bindParam(":price", $price);
         $stmt->bindParam(":description", $description);
         $stmt->bindParam(":id", $id);

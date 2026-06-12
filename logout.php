@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Zmazeme vsetky data zo session (odstrihneme naramok)
+// Zmazeme vsetky data zo session
 session_unset();
 session_destroy();
 

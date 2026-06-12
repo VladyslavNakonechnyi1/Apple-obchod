@@ -1,9 +1,9 @@
 <?php
 session_start();
-// 1. Pripojime databazu
+// Pripojime databazu
 require_once 'Database.php';
 
-// Ak uz je prihlaseny, hodime ho prec
+// Ak uz je prihlaseny hodime ho prec
 if (isset($_SESSION['prihlaseny_uzivatel'])) {
     header("Location: galeria.php");
     exit();
@@ -12,11 +12,11 @@ if (isset($_SESSION['prihlaseny_uzivatel'])) {
 $chyba = "";
 $uspech = "";
 
-// 2. Spracovanie formulara
+// Spracovanie formulara
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $database = new Database();
     $db = $database->getConnection();
-
+    // Deletne medzery
     $meno = trim($_POST['meno']);
     $heslo = trim($_POST['heslo']);
 
@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($kontrola->rowCount() > 0) {
             $chyba = "Toto meno uz niekto pouziva, skus ine.";
         } else {
+            // Bezpecne hashovanie hesla
             $zahasovane_heslo = password_hash($heslo, PASSWORD_DEFAULT);
             $vlozit = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
             

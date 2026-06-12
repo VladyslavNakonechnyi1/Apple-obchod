@@ -1,9 +1,9 @@
 <?php
 session_start();
-// 1. Pripojime databazu
+// Pripojime databazu
 require_once 'Database.php';
 
-// Ak uz je prihlaseny, rovno ho hodime do adminu
+// Ak uz je prihlaseny rovno ho hodime do adminu
 if (isset($_SESSION['prihlaseny_uzivatel'])) {
     header("Location: admin.php");
     exit();
@@ -11,11 +11,11 @@ if (isset($_SESSION['prihlaseny_uzivatel'])) {
 
 $chyba = "";
 
-// 2. Spracovanie formulara
+// Spracovanie formulara
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $database = new Database();
     $db = $database->getConnection();
-
+    // Deletne medzery
     $meno = trim($_POST['meno']);
     $heslo = trim($_POST['heslo']);
 

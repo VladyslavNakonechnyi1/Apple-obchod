@@ -1,5 +1,5 @@
 <?php
-//Pripojenie databazy a objektu
+// Pripojenie databazy a objektu
 require_once 'Database.php';
 require_once 'Product.php';
 
@@ -7,7 +7,7 @@ $database = new Database();
 $db = $database->getConnection();
 $product = new Product($db);
 
-// Ak uzivatel klikol na tlacitko Ulozit zmeny 
+// Ak uzivatel klikol na tlacitko ulozit zmeny 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Zavolame funkciu UPDATE z Product.php
     $product->update($_POST['id'], $_POST['price'], $_POST['description']);
@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 
-// Ak stranku len otvarame (klikol na Upravit v galerii) nacitame data produktu
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     // Vytiahneme len tento jeden konkretny produkt podla ID

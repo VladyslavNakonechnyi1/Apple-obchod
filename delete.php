@@ -3,7 +3,7 @@
 require_once 'Database.php';
 require_once 'Product.php';
 
-
+//Odrzim id cez url pomocou get
 if (isset($_GET['id'])) {
     
 

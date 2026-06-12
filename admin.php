@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// OCHRANNIK - Ak uzivatel nie je prihlaseny, vyhodime ho na login
+// Ak uzivatel nie je prihlaseny, vyhodime ho na login
 if (!isset($_SESSION['prihlaseny_uzivatel'])) {
     header("Location: login.php");
     exit();
@@ -13,16 +13,16 @@ require_once 'Product.php';
 
 $message = "";
 
-// Kontrola ci bol formular odoslany (metoda POST je bezpecnejsia pre data)
+// Kontrola ci bol formular odoslany
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Inicializacia pripojenia k databaze
+    // Pripojenie k databaze
     $database = new Database();
     $db = $database->getConnection();
     
-    // Vytvorenie instancie triedy Product (nas objekt)
+    // Vytvorenie instancie triedy Product 
     $product = new Product($db);
 
-    // Kontrola obrazka (ak uzivatel nic nezada, pouzije sa defaultny obrazok)
+    // Kontrola obrazka 
     $image = !empty($_POST['image']) ? $_POST['image'] : 'default.png';
 
     // Volanie funkcie CREATE z Product.php na ulozenie do databazy
